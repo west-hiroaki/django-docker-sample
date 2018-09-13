@@ -5,6 +5,18 @@ volumes:
     driver: 'local'
 
 services:
+  python_app:
+    build: ./python_app
+    ports:
+      - "8888:8000"
+    volumes:
+      # 開発コード同期（実行速度を無視して直接マウント）
+      - ./sample_project:/home/docker/my_app
+    depends_on:
+      - mysql
+    stdin_open: true
+    tty: true
+
   mysql:
     image: mysql:5.6
     volumes:
@@ -13,4 +25,3 @@ services:
       - "3336:3306"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-

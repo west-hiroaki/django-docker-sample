@@ -80,9 +80,9 @@ DATABASES = {
         'NAME': 'sample',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3336',
-        'ATOMIC_REQUESTS': True,   # リクエスト単位トランザクションON
+        'HOST': 'mysql',          # mysqlコンテナへのアクセス
+        'PORT': '3306',
+        'ATOMIC_REQUESTS': True,  # リクエスト単位トランザクションON
     }
 }
 
